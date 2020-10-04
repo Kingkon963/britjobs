@@ -237,47 +237,67 @@ header .searchBar_fixed #job_search_section button {
   font-size: 1.1em;
 }
 
-#featured_job_row .featured_job {
+.job-card {
+  background-color: #c7d0d8;
+  border-radius: 2%;
+  padding: 5% 0%;
+  margin: 3% 3%;
+  -webkit-box-shadow: 3px 3px 5px #215160;
+          box-shadow: 3px 3px 5px #215160;
+}
+
+#featured_job_row .job_list {
   margin-top: 10px;
   border-bottom: 3px solid #9c9c9c;
 }
 
-#featured_job_row .featured_job h4 {
+#featured_job_row .job_list h4 {
   font-weight: bold;
 }
 
-#featured_job_row .featured_job .badge {
+#featured_job_row .job_list .badge {
   background-color: #db6565;
   color: floralwhite;
 }
 
-#featured_job_row .featured_job .euro-icon {
+#featured_job_row .job_list dl {
+  font-size: .8em;
+}
+
+#featured_job_row .job_list .euro-icon {
   border: 1px solid black;
   padding: 0px;
 }
 
-#featured_job_row .featured_job .euro-icon .fa-circle-o {
+#featured_job_row .job_list .euro-icon .fa-circle-o {
   font-size: 1.5em;
 }
 
-#featured_job_row .featured_job .euro-icon .fa-euro {
+#featured_job_row .job_list .euro-icon .fa-euro {
   font-size: .8em;
 }
 
-#featured_job_row .featured_job .fa-heart-o, #featured_job_row .featured_job .fa-heart {
+#featured_job_row .job_list .fa-heart-o, #featured_job_row .job_list .fa-heart {
   font-size: 3.5em;
 }
 
-#featured_job_row .featured_job .love_btn {
+#featured_job_row .job_list .love_btn {
   color: #db6565;
   background-color: transparent;
   border: none;
   outline: none;
+  padding: 0 0 5px 0;
 }
 
-#featured_job_row .featured_job .company_img {
+#featured_job_row .job_list .company_img {
   min-width: 215px;
   min-height: 100px;
+  background-color: #215160;
+  border-color: #215160;
+}
+
+#featured_job_row .job_list p {
+  font-size: .8em;
 }
 
 #choose_location_row .location_grid {

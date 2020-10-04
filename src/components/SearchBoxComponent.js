@@ -12,11 +12,11 @@ class SearchBox extends Component{
 				<div className="col-12" id="job_search_section">
 					<div className="row">
 						<div className="col-12 col-sm-4 offset-sm-1 my-auto d-flex flex-column">
-							<label className="text-white" for="">Job Title</label>
+							<label className="text-white"  htmlFor="">Job Title</label>
 							<input className="form-control" type="text" placeholder="Admin Assistant" />
 						</div>
 						<div className="col-12 col-sm-4 my-auto d-flex flex-column">
-							<label className="text-white" for="">Location</label>
+							<label className="text-white" htmlFor="">Location</label>
 							<input className="form-control" type="text" placeholder="London" />
 						</div>
 						<div className="col-12 col-sm-2 my-auto d-flex flex-column">

@@ -42,7 +42,7 @@ class NavBar extends Component {
                         <NavbarBrand className='navbar-brand'>
                             <img src="assets/img/logo.png" alt="brand-logo"/>
                         </NavbarBrand>
-                        <button class="d-sm-none d-inline btn text-white btn-sm  py-0 border"><i class="fa fa-bell"></i> Sign in</button>
+                        <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border"><i className="fa fa-bell"></i> Sign in</button>
                         <Collapse navbar isOpen={this.state.navOpen}>
                             <Nav navbar className='py-3'>
                                 <NavItem className='nav-item btn btn-sm'>
@@ -69,7 +69,7 @@ class NavBar extends Component {
                                     <strong>Post a Job</strong>
                                 </button>
                                 <button className="nav-item btn btn-sm btn-dark btn-md-lg nav-btn ">Register CV</button>
-                                <button className="nav-item d-none d-sm-block btn text-white btn-sm "><i class="fa fa-lg fa-bell"></i> Sign in</button>
+                                <button className="nav-item d-none d-sm-block btn text-white btn-sm "><i className="fa fa-lg fa-bell"></i> Sign in</button>
                             </div>
                         </Collapse>
                     </div>

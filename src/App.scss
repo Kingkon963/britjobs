@@ -187,8 +187,16 @@ header {
 	}
 }
 
+.job-card{
+	background-color: #c7d0d8;
+	border-radius: 2%;
+	padding: 5% 0%;
+	margin: 3% 3%;
+	box-shadow: 3px 3px 5px $color-secondary;
+}
+
 #featured_job_row {
-	.featured_job {
+	.job_list {
 		margin-top: 10px;
 		border-bottom: 3px solid rgb(156, 156, 156);
 		h4 {
@@ -198,6 +206,9 @@ header {
 			background-color: $color-primary;
 			color: floralwhite;
 
+		}
+		dl{
+			font-size: .8em;
 		}
 		.euro-icon {
 			border: 1px solid black;
@@ -217,11 +228,16 @@ header {
 			background-color: transparent;
 			border: none;
 			outline: none;
-			
+			padding: 0 0 5px 0;
 		}
 		.company_img {
 			min-width: 215px;
 			min-height: 100px;
+			background-color: $color-secondary;
+			border-color: $color-secondary;
+		}
+		p{
+			font-size: .8em;
 		}
 	}
 }
