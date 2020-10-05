@@ -193,6 +193,13 @@ header {
 	padding: 10px 0;
 	margin: 3% 3%;
 	box-shadow: 3px 3px 5px $color-secondary;
+	hr {
+		width: 100%;
+		border-top: $color-secondary 1px solid;
+		margin-bottom: 5px;
+		margin-top: 5px;
+		padding: 0px;
+	}
 }
 
 #featured_job_row {
@@ -229,13 +236,14 @@ header {
 			background-color: transparent;
 			border: none;
 			outline: none;
-			padding: 0 0 5px 0;
+			padding: 0 0 0 0;
 		}
 		.company_img {
 			min-width: 215px;
 			min-height: 100px;
 			background-color: $color-secondary;
 			border-color: $color-secondary;
+			margin-top: 7px;
 		}
 		p{
 			font-size: .8em;

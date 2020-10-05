@@ -33,7 +33,7 @@ class JobsList extends Component{
                     </div>
                     <div className="col-12 col-sm-6">
 						<div className="d-flex flex-column">
-                            
+                            <hr />
 							<button className="ml-auto mr-sm-3 love_btn align-self-start"
 							onClick={() => this.props.toggleFavourite(job.id)}>
 								<img src={job.isFavourite?"assets/img/love-fill.svg":"assets/img/love.svg"} width="40px" alt="" />

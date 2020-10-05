@@ -246,6 +246,14 @@ header .searchBar_fixed #job_search_section button {
           box-shadow: 3px 3px 5px #215160;
 }
 
+.job-card hr {
+  width: 100%;
+  border-top: #215160 1px solid;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 0px;
+}
+
 #featured_job_row {
   overflow-x: scroll;
 }
@@ -290,7 +298,7 @@ header .searchBar_fixed #job_search_section button {
   background-color: transparent;
   border: none;
   outline: none;
-  padding: 0 0 5px 0;
+  padding: 0 0 0 0;
 }
 
 #featured_job_row .job_list .company_img {
@@ -298,6 +306,7 @@ header .searchBar_fixed #job_search_section button {
   min-height: 100px;
   background-color: #215160;
   border-color: #215160;
+  margin-top: 7px;
 }
 
 #featured_job_row .job_list p {
