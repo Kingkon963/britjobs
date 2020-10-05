@@ -74,7 +74,7 @@ class LandingPage extends Component{
 			            </div>
 		            </div>
                     <div className="row mt-1" id="featured_job_row">
-                        <JobsList />
+                        <JobsList jobs={this.props.jobs}/>
                     </div>
                 </div>
             </div>

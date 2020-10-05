@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
     return (
-        <footer >
+        <footer>
 		<div className="container-fluid">
 			<div id="footer_grid">
 				<div className="colf-1">

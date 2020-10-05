@@ -240,10 +240,14 @@ header .searchBar_fixed #job_search_section button {
 .job-card {
   background-color: #c7d0d8;
   border-radius: 2%;
-  padding: 5% 0%;
+  padding: 10px 0;
   margin: 3% 3%;
   -webkit-box-shadow: 3px 3px 5px #215160;
           box-shadow: 3px 3px 5px #215160;
+}
+
+#featured_job_row {
+  overflow-x: scroll;
 }
 
 #featured_job_row .job_list {
@@ -478,7 +482,7 @@ header .searchBar_fixed #job_search_section button {
 footer {
   background: #db6560;
   background: linear-gradient(155deg, #db6560 0%, #9a4744 23%, #783836 39%, #4b2322 67%, #231010 100%);
-  z-index: -10;
+  margin-top: auto;
 }
 
 footer #footer_grid {
@@ -570,5 +574,22 @@ footer .copywrite {
   margin-top: 10%;
   -ms-grid-column-align: center;
       justify-self: center;
+}
+
+.page404 {
+  /*min-height: 39.7vh;*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=App.css.map */

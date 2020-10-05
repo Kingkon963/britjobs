@@ -190,12 +190,13 @@ header {
 .job-card{
 	background-color: #c7d0d8;
 	border-radius: 2%;
-	padding: 5% 0%;
+	padding: 10px 0;
 	margin: 3% 3%;
 	box-shadow: 3px 3px 5px $color-secondary;
 }
 
 #featured_job_row {
+	overflow-x: scroll;
 	.job_list {
 		margin-top: 10px;
 		border-bottom: 3px solid rgb(156, 156, 156);
@@ -374,7 +375,7 @@ header {
 footer {
 	background: rgb(219,101,96);
 	background: linear-gradient(155deg, rgba(219,101,96,1) 0%, rgba(154,71,68,1) 23%, rgba(120,56,54,1) 39%, rgba(75,35,34,1) 67%, rgba(35,16,16,1) 100%);
-	z-index: -10;
+	margin-top: auto;
 	#footer_grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -439,5 +440,14 @@ footer {
 		margin-top: 10%;
 		justify-self: center;
 	}
+}
+
+.page404{
+	/*min-height: 39.7vh;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
 }
 
