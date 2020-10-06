@@ -34,8 +34,7 @@ function NotFound404(){
 class Main extends Component {
     constructor(props){
         super(props);
-        console.log("props: "+props.store);
-        console.log("props.jobs: "+props.jobs);
+
     }
     
     render() {

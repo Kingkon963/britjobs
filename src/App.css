@@ -242,6 +242,7 @@ header .searchBar_fixed #job_search_section button {
   border-radius: 2%;
   padding: 10px 0;
   margin: 3% 3%;
+  margin-bottom: 20px;
   -webkit-box-shadow: 3px 3px 5px #215160;
           box-shadow: 3px 3px 5px #215160;
 }
@@ -372,6 +373,10 @@ header .searchBar_fixed #job_search_section button {
 
 #choose_location_row .location_grid h1 {
   color: floralwhite;
+}
+
+#stay_ahead_row h3 {
+  text-align: center;
 }
 
 #stay_ahead_row button {
