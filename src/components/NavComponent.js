@@ -40,20 +40,16 @@ class NavBar extends Component {
                     <button className="navbar-toggler" onClick={() => this.toggleNav()}>
 				        <i className="fa fa-bars" id="nav-toggler-icon" ref={this.navTogglerIconRef}></i>
 			        </button>
-                        <Link to='/home' >
-                            <NavbarBrand className='navbar-brand'>
-                                <img src="assets/img/logo.png" alt="brand-logo"/>
-                            </NavbarBrand>
+                        <Link to='/home' className='navbar-brand'>
+                            <img src="assets/img/logo.png" alt="brand-logo"/>
                         </Link>
                         <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border"><i className="fa fa-bell"></i> Sign in</button>
                         <Collapse navbar isOpen={this.state.navOpen}>
                             <Nav navbar className='py-3'>
                                 <NavItem className='nav-item btn btn-sm'>
-                                    <Link to='/jobs' onClick={this.toggleNav}>
-                                        <NavLink className='nav-link'>
-                                            <img src="assets/img/jobs.png" alt="jobs" className="my-0" width="50%" />
-                                            <span>Jobs</span>
-                                        </NavLink>
+                                    <Link to='/jobs' onClick={this.toggleNav} className='nav-link'>
+                                        <img src="assets/img/jobs.png" alt="jobs" className="my-0" width="50%" />
+                                        <span>Jobs</span>
                                     </Link> 
                                 </NavItem>
                                 <NavItem className='nav-item btn btn-sm'>

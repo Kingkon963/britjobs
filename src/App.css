@@ -304,6 +304,7 @@ header .searchBar_fixed #job_search_section button {
 #featured_job_row .job_list .company_img {
   min-width: 215px;
   min-height: 100px;
+  max-height: 100px;
   background-color: #215160;
   border-color: #215160;
   margin-top: 7px;

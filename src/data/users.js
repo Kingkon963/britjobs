@@ -1,8 +1,12 @@
 export const USERS = [
     {
-        name: 'Naim'
+        id: 0,
+        name: 'Naim',
+        favJobs: []
     },
     {
-        name: 'Symoon'
+        id:1,
+        name: 'Symoon',
+        favJobs: []
     }
 ];
