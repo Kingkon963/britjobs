@@ -15,12 +15,12 @@ class SubscribeForm extends Component{
                             <input className="form-control" type="text" placeholder="Last Name" id="sub_l_name"/>
                             <input className="form-control" type="email" placeholder="Email" name="email" id="sub_email"/>
                             <select>
-                                <option selected>Choose job sector</option>
+                                <option>Choose job sector</option>
                                 <option>IT</option>
                                 <option>Law</option>
                             </select>
                             <select>
-                                <option selected>Choose Location</option>
+                                <option>Choose Location</option>
                                 <option>London</option>
                                 <option>Dhaka</option>
                             </select>

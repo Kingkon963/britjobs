@@ -18,7 +18,7 @@ class JobsList extends Component{
             return(
                 <div className='row job-card' key={job.id}>
                     <div className="col-12 col-sm-6">
-                        <h4 >{job.title} <br className='d-sm-none' /> <span className="badge ">Featured job</span></h4>
+                        <h4 >{job.title} <br className='d-sm-none' />{job.isFeatured?<span className="badge ">Featured job</span>:null}</h4>
                         <dl className="row mb-0 ">
                             <dd className="col-6"><span className="fa fa-map-marker"></span> {job.location.area}, {job.location.city}</dd>
                             <dd className="col-6">
@@ -38,7 +38,7 @@ class JobsList extends Component{
 							onClick={() => this.props.toggleFavourite(job.id)}>
 								<img src={job.isFavourite?"assets/img/love-fill.svg":"assets/img/love.svg"} width="40px" alt="" />
 							</button>
-                            <img className="img-fluid img-thumbnail company_img" 
+                            <img className="img-fluid company_img" 
                             src={job.companyLogo} alt="company logo" />
 						</div>
 					</div>

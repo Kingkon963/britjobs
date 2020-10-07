@@ -9,7 +9,7 @@ class NavBar extends Component {
         this.navTogglerIconRef = React.createRef();
 
         this.state = {
-            navOpen: false
+            navOpen: true
         }
 
         this.toggleNav = this.toggleNav.bind(this);
@@ -34,7 +34,7 @@ class NavBar extends Component {
 
     render(){
         return (
-            <div id="navbar" >
+            <div id="navbar" className='fixed-top'>
                 <Navbar dark expand='md'  className='navbar-dark'>
                     <div className='container-fluid'>
                     <button className="navbar-toggler" onClick={() => this.toggleNav()}>
@@ -44,29 +44,46 @@ class NavBar extends Component {
                             <img src="assets/img/logo.png" alt="brand-logo"/>
                         </Link>
                         <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border"><i className="fa fa-bell"></i> Sign in</button>
-                        <Collapse navbar isOpen={this.state.navOpen}>
-                            <Nav navbar className='py-3'>
+                        <Collapse navbar isOpen={!this.state.navOpen}>
+                            <Nav navbar className='py-3 py-sm-0'>
                                 <NavItem className='nav-item btn btn-sm'>
-                                    <Link to='/jobs' onClick={this.toggleNav} className='nav-link'>
-                                        <img src="assets/img/jobs.png" alt="jobs" className="my-0" width="50%" />
+                                    <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
+                                        <i className='fa fa-briefcase mr-1'></i>
                                         <span>Jobs</span>
                                     </Link> 
                                 </NavItem>
                                 <NavItem className='nav-item btn btn-sm'>
-                                    <NavLink className='nav-link'>
-                                        <img src="assets/img/company.png" alt="jobs" className="my-0" width="50%" />
+                                    <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
+                                        <img src="assets/img/company.png" alt="jobs" />
                                         Companies
-                                    </NavLink>
+                                    </Link>
                                 </NavItem>
                                 <NavItem className='nav-item btn btn-sm'>
-                                    <NavLink className='nav-link'>
+                                    <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
                                         <img src="assets/img/resource.png" alt="jobs" className="my-0" width="50%" />
                                         Resource
-                                    </NavLink>
+                                    </Link>
                                 </NavItem>
+
+                                <>
+                                    <NavItem className='nav-item ml-auto px-0 d-none d-md-block'>
+                                        <button className="nav-link btn nav-btn btn-sm btn-md-lg text-white mb-1 mb-sm-0">
+                                            <strong>Post a Job</strong>
+                                        </button>
+                                    </NavItem>
+                                    <NavItem className='nav-item px-0 d-none d-md-block'>
+                                        <button className="nav-link btn btn-sm btn-md-lg nav-btn ">Register CV</button>
+                                    </NavItem>
+                                    <NavItem className='nav-item px-0 d-none d-md-block'>
+                                        <button className="nav-link btn text-white btn-sm ">
+                                            <i className="fa fa-lg fa-bell"></i> Sign in
+                                        </button>
+                                    </NavItem>
+                                </>
+                                
                             </Nav>
-                            <div className="nav-btns-div mb-1">
-                                <button className="nav-item btn btn-sm btn-outline-dark btn-md-lg text-white mb-1">
+                            <div className="nav-btns-div mb-1 d-sm-none">
+                                <button className="nav-item btn btn-sm btn-outline-dark btn-md-lg text-white mb-1 mb-sm-0">
                                     <strong>Post a Job</strong>
                                 </button>
                                 <button className="nav-item btn btn-sm btn-dark btn-md-lg nav-btn ">Register CV</button>

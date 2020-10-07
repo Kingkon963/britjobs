@@ -7,8 +7,6 @@ class SearchBox extends Component{
 
     render(){
         return(
-        <div className="container searchBar_not_fixed" id="job_search_container">
-			<div className="row">
 				<div className="col-12" id="job_search_section">
 					<div className="row">
 						<div className="col-12 col-sm-4 offset-sm-1 my-auto d-flex flex-column">
@@ -29,8 +27,6 @@ class SearchBox extends Component{
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
         );
     }
 }

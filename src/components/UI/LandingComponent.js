@@ -23,7 +23,11 @@ class LandingPage extends Component{
                             </div>
                         </div>
                     </div>
-                    <SearchBox />
+					<div className="container searchBar_not_fixed" id="job_search_container">
+						<div className='row'>
+							<SearchBox />
+						</div>
+					</div>
                 </header>
                 <div className='container'>
                     <div className="row" id="job_sector_row">
@@ -75,7 +79,7 @@ class LandingPage extends Component{
 			            </div>
 		            </div>
                     <div className="row mt-1" id="featured_job_row">
-                        <JobsList jobs={this.props.jobs}/>
+                        <JobsList jobs={this.props.jobs.filter(job => job.isFeatured)}/>
                     </div>
 					<div className="row " id="choose_location_row">
 						<div className="col-12 my-5">

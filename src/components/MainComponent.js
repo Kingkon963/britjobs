@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import NavBar from './NavComponent';
 import Footer from './UI/FooterComponent';
 import LandingPage from './UI/LandingComponent';
+import JobsPage from './UI/JobsPageComponent';
+import JobsList from './JobsListComponent';
 
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -46,7 +48,9 @@ class Main extends Component {
                     <Route path='/home' >
                         <LandingPage jobs={this.props.jobs}/>
                     </Route>
-                    <Route path='/jobs' component={NotFound404}/>
+                    <Route path='/jobs'>
+                        <JobsPage jobs={this.props.jobs} />
+                    </Route>
                     <Route path='/404' component={NotFound404}/>
                     <Redirect to='/home' />
                 </Switch>
