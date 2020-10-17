@@ -5,10 +5,6 @@ import JobsList from '../JobsListComponent';
 import SubscribeForm from '../SubscribeFormComponent';
 
 class LandingPage extends Component{
-    constructor(props){
-        super(props);
-    }
-
     render(){
         return(
             <div>
@@ -23,8 +19,8 @@ class LandingPage extends Component{
                             </div>
                         </div>
                     </div>
-					<div className="container searchBar_not_fixed" id="job_search_container">
-						<div className='row'>
+					<div className="container" id="job_search_container">
+						<div className='row px-4'>
 							<SearchBox />
 						</div>
 					</div>

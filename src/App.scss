@@ -66,7 +66,20 @@ body {
 	@include tablet(){
 		margin-top: 4.9em;
 	}
+
+	a{
+		text-decoration: none;
+		font-weight: lighter;
+		color: #ddd9d7;
+	}
+	a:hover {
+		color: floralwhite;
+		text-decoration: none;
+	}
 }
+
+// Landing Page
+
 .see_all_btn {
 	background-color: $color-primary;
 	padding: 5px 80px;
@@ -75,10 +88,11 @@ body {
 	border-radius: 20px 20px;
 	color: floralwhite;
 	margin: 30px 0px;
+	.see_all_btn:focus {
+		outline: none;
+	}
 }
-.see_all_btn:focus {
-	outline: none;
-}
+
 #navbar {
 	z-index: 10;
 	.navbar-dark {
@@ -144,11 +158,14 @@ body {
 			width: 100%;
 			justify-content: flex-end;
 		}
-		@include border();
 		.nav-btn {
 			background-color: darken($color-primary, 20);
 			border-color: $color-primary;
 		}
+	}
+	.profile-pic{
+		max-width: 40px;
+		max-height: 40px;
 	}
 }
 
@@ -167,71 +184,64 @@ header {
 			align-self: flex-start;
 			font-size: 3em;
 		}
-	}
-	#job_search_container{
+	}	
+}
+.searchBar_not_fixed{
+	padding: 0px 0em;
+	transition: all ease-in .5s;
 
+	font-size: .8em;
+	z-index: 0!important;
+	.row {
+		background-color: rgba(0, 0, 0, .3);
+		min-height: 15vh;
+		padding: 1em 0px;
 	}
+	input {
+		border:none;
+		min-height: 40px;
+	}
+	.dummy {
+		color: red;
+		visibility: hidden;
+	}
+	a{
+		text-decoration: none;
+	}
+	button {
+		border: none;
+		outline: none;
+	}
+	button:focus{
+		outline: none !important;
+		box-shadow: none !important;
+	}
+	
+}
+
+.searchBar_fixed {
+	position: fixed;
+	top: -6.5em;
+	z-index: 9;
+	transition: all ease-in-out .5s;
 	#job_search_section {
-		font-size: .8em;
-		z-index: 0!important;
-		.row {
-			background-color: rgba(0, 0, 0, .3);
-			min-height: 15vh;
-			padding: 1em 0px;
+		.row{
+			padding: 0px;
+			min-height: auto !important;
+			//max-height: 20vh;
+		}
+		label {
+			transition: top ease-out 1s;
 		}
 		input {
-			border:none;
-			min-height: 40px;
-		}
-		.dummy {
-			color: red;
-			visibility: hidden;
-		}
-		a{
-			text-decoration: none;
+			transition: top ease-out 1s;
 		}
 		button {
-			border: none;
-			outline: none;
-		}
-		button:focus{
-			outline: none !important;
-			box-shadow: none !important;
+			display: block;
+			
+			border: 3px solid black;
 		}
 	}
-	
-	.searchBar_not_fixed{
-		padding: 0px 2em;
-		transition: all ease-in .5s;
-		
-	}
-
-	.searchBar_fixed {
-		position: fixed;
-		top: -6.5em;
-		z-index: 9;
-		transition: all ease-in-out .5s;
-		#job_search_section {
-			.row{
-				padding: 0px;
-				min-height: auto !important;
-				//max-height: 20vh;
-			}
-			label {
-				transition: top ease-out 1s;
-			}
-			input {
-				transition: top ease-out 1s;
-			}
-			button {
-				display: block;
-				
-				border: 3px solid black;
-			}
-		}
-	}
-	
-		
 }
 
 .row_heading {
@@ -251,7 +261,6 @@ header {
 		grid-template-rows: auto;
 		column-gap: 3em;
 		row-gap: 1em;
-		overflow-x: scroll;
 		.sector-btn {
 			background-color: $color-secondary;
 			padding: 20px 60px;
@@ -328,8 +337,7 @@ header {
 	
 }
 #featured_job_row {
-	overflow-x: scroll;
-	
+	//comment
 }
 
 #choose_location_row {
@@ -534,6 +542,8 @@ footer {
 	}
 }
 
+// 404 Page
+
 .page404{
 	/*min-height: 39.7vh;*/
 	display: flex;
@@ -541,5 +551,11 @@ footer {
 	align-items: center;
 	flex-direction: column;
 	
+}
+
+//SignIn Page
+
+.signInPage{
+	min-height: 32.5vh;
 }
 

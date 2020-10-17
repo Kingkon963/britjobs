@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 
 import NavBar from './NavComponent';
 import Footer from './UI/FooterComponent';
-import LandingPage from './UI/LandingComponent';
-import JobsPage from './UI/JobsPageComponent';
-import JobsList from './JobsListComponent';
+import LandingPage from './Pages/LandingComponent';
+import JobsPage from './Pages/JobsPageComponent';
+import SignInPage from './Pages/SignInPageComponent';
 
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {toggleFavourite} from '../redux/ActionCreators';
+import { firebaseAuth } from '../firebase/config';
 
 const mapStateToProps = (state) => {
     return {
@@ -33,23 +34,29 @@ function NotFound404(){
 
 
 
-class Main extends Component {
-    constructor(props){
+function Main(props){
+    /*constructor(props){
         super(props);
+        this.state = {
+            isAuthenticated: firebaseAuth.currentUser !== null
+        }
+    }*/
+    let [isAuthenticated, setIsAuthenticated] = useState(firebaseAuth.currentUser !== null);
 
-    }
     
-    render() {
         return (
             <div className='main'>
-                <NavBar />
+                <NavBar isAuthenticated={isAuthenticated}/>
 
                 <Switch>
                     <Route path='/home' >
-                        <LandingPage jobs={this.props.jobs}/>
+                        <LandingPage jobs={props.jobs}/>
                     </Route>
                     <Route path='/jobs'>
-                        <JobsPage jobs={this.props.jobs} />
+                        <JobsPage jobs={props.jobs} />
+                    </Route>
+                    <Route path='/signin'>
+                        <SignInPage setIsAuthenticated={setIsAuthenticated}/>
                     </Route>
                     <Route path='/404' component={NotFound404}/>
                     <Redirect to='/home' />
@@ -58,7 +65,7 @@ class Main extends Component {
                 <Footer />
             </div>
         );
-    }
+    
 
 }
 

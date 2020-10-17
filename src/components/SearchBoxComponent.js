@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 
 class SearchBox extends Component{
-    constructor(props){
-        super(props);
-    }
 
     render(){
         return(
-				<div className="col-12" id="job_search_section">
+				<div className="col-12 searchBar_not_fixed" id="job_search_section">
 					<div className="row">
 						<div className="col-12 col-sm-4 offset-sm-1 my-auto d-flex flex-column">
 							<label className="text-white"  htmlFor="">Job Title</label>

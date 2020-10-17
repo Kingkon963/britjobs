@@ -36,6 +36,17 @@ body {
   }
 }
 
+body a {
+  text-decoration: none;
+  font-weight: lighter;
+  color: #ddd9d7;
+}
+
+body a:hover {
+  color: floralwhite;
+  text-decoration: none;
+}
+
 .see_all_btn {
   background-color: #db6565;
   padding: 5px 80px;
@@ -46,7 +57,7 @@ body {
   margin: 30px 0px;
 }
 
-.see_all_btn:focus {
+.see_all_btn .see_all_btn:focus {
   outline: none;
 }
 
@@ -154,7 +165,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-  border: 1px solid black;
 }
 
 @media only screen and (min-width: 576px) {
@@ -173,6 +183,11 @@ body {
 #navbar .nav-btns-div .nav-btn {
   background-color: #b12929;
   border-color: #db6565;
+}
+
+#navbar .profile-pic {
+  max-width: 40px;
+  max-height: 40px;
 }
 
 header {
@@ -199,49 +214,46 @@ header #header_title_div h1 {
   font-size: 3em;
 }
 
-header #job_search_section {
+.searchBar_not_fixed {
+  padding: 0px 0em;
+  -webkit-transition: all ease-in .5s;
+  transition: all ease-in .5s;
   font-size: .8em;
   z-index: 0 !important;
 }
 
-header #job_search_section .row {
+.searchBar_not_fixed .row {
   background-color: rgba(0, 0, 0, 0.3);
   min-height: 15vh;
   padding: 1em 0px;
 }
 
-header #job_search_section input {
+.searchBar_not_fixed input {
   border: none;
   min-height: 40px;
 }
 
-header #job_search_section .dummy {
+.searchBar_not_fixed .dummy {
   color: red;
   visibility: hidden;
 }
 
-header #job_search_section a {
+.searchBar_not_fixed a {
   text-decoration: none;
 }
 
-header #job_search_section button {
+.searchBar_not_fixed button {
   border: none;
   outline: none;
 }
 
-header #job_search_section button:focus {
+.searchBar_not_fixed button:focus {
   outline: none !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }
 
-header .searchBar_not_fixed {
-  padding: 0px 2em;
-  -webkit-transition: all ease-in .5s;
-  transition: all ease-in .5s;
-}
-
-header .searchBar_fixed {
+.searchBar_fixed {
   position: fixed;
   top: -6.5em;
   z-index: 9;
@@ -249,22 +261,22 @@ header .searchBar_fixed {
   transition: all ease-in-out .5s;
 }
 
-header .searchBar_fixed #job_search_section .row {
+.searchBar_fixed #job_search_section .row {
   padding: 0px;
   min-height: auto !important;
 }
 
-header .searchBar_fixed #job_search_section label {
+.searchBar_fixed #job_search_section label {
   -webkit-transition: top ease-out 1s;
   transition: top ease-out 1s;
 }
 
-header .searchBar_fixed #job_search_section input {
+.searchBar_fixed #job_search_section input {
   -webkit-transition: top ease-out 1s;
   transition: top ease-out 1s;
 }
 
-header .searchBar_fixed #job_search_section button {
+.searchBar_fixed #job_search_section button {
   display: block;
   border: 3px solid black;
 }
@@ -293,7 +305,6 @@ header .searchBar_fixed #job_search_section button {
   -webkit-column-gap: 3em;
           column-gap: 3em;
   row-gap: 1em;
-  overflow-x: scroll;
 }
 
 #job_sector_row .job_sector_grid .sector-btn {
@@ -377,10 +388,6 @@ header .searchBar_fixed #job_search_section button {
 
 .job_list .job-card p {
   font-size: .8em;
-}
-
-#featured_job_row {
-  overflow-x: scroll;
 }
 
 #choose_location_row .location_grid {
@@ -674,5 +681,9 @@ footer .copywrite {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.signInPage {
+  min-height: 32.5vh;
 }
 /*# sourceMappingURL=App.css.map */

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {Navbar ,Nav, Collapse, NavLink, NavItem} from 'reactstrap';
+import {Navbar ,Nav, Collapse, NavItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
+import ProfilePic from './UI/ProfilePicComponent';
+import { firebaseAuth } from '../firebase/config';
 
 class NavBar extends Component {
 
@@ -43,24 +45,28 @@ class NavBar extends Component {
                         <Link to='/home' className='navbar-brand'>
                             <img src="assets/img/logo.png" alt="brand-logo"/>
                         </Link>
-                        <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border"><i className="fa fa-bell"></i> Sign in</button>
+                        <div className='d-sm-none d-inline'>
+                            {!this.props.isAuthenticated && 
+                            <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border"><i className="fa fa-bell"></i> Sign in</button>}
+                            {this.props.isAuthenticated && <ProfilePic url={firebaseAuth.currentUser.photoURL}/>}
+                        </div>
                         <Collapse navbar isOpen={!this.state.navOpen}>
                             <Nav navbar className='py-3 py-sm-0'>
                                 <NavItem className='nav-item btn btn-sm'>
                                     <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
-                                        <i className='fa fa-briefcase mr-1'></i>
+                                        <i className='fa fa-briefcase mr-1 d-sm-none'></i>
                                         <span>Jobs</span>
                                     </Link> 
                                 </NavItem>
                                 <NavItem className='nav-item btn btn-sm'>
                                     <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
-                                        <img src="assets/img/company.png" alt="jobs" />
+                                        <img src="assets/img/company.png" alt="jobs" className='d-sm-none'/>
                                         Companies
                                     </Link>
                                 </NavItem>
                                 <NavItem className='nav-item btn btn-sm'>
                                     <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
-                                        <img src="assets/img/resource.png" alt="jobs" className="my-0" width="50%" />
+                                        <img src="assets/img/resource.png" alt="jobs" className="my-0 d-sm-none" width="50%" />
                                         Resource
                                     </Link>
                                 </NavItem>
@@ -74,11 +80,21 @@ class NavBar extends Component {
                                     <NavItem className='nav-item px-0 d-none d-md-block'>
                                         <button className="nav-link btn btn-sm btn-md-lg nav-btn ">Register CV</button>
                                     </NavItem>
-                                    <NavItem className='nav-item px-0 d-none d-md-block'>
-                                        <button className="nav-link btn text-white btn-sm ">
-                                            <i className="fa fa-lg fa-bell"></i> Sign in
-                                        </button>
-                                    </NavItem>
+                                    
+                                        {!this.props.isAuthenticated && 
+                                            <NavItem className='nav-item px-0 d-none d-md-block'>
+                                                <Link to='signin'>
+                                                    <button className="nav-link btn text-white btn-sm ">
+                                                        <i className="fa fa-lg fa-bell"></i> Sign in
+                                                    </button>
+                                                </Link>
+                                            </NavItem>
+                                        }
+                                        {this.props.isAuthenticated && 
+                                            <ProfilePic url={firebaseAuth.currentUser.photoURL}/>
+                                        }
+                                        
+                                    
                                 </>
                                 
                             </Nav>

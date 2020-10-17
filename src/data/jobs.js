@@ -39,7 +39,7 @@ export const JOBS = [
     },
     {
         id: 2,
-        title: "Sweaper",
+        title: "Sweeper",
         location: {
             area: 'Tejgaon',
             city: 'Dhaka'

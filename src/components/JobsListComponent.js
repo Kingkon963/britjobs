@@ -9,9 +9,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class JobsList extends Component{
-    constructor(props){
-        super(props);
-    }
 
     render(){
         const jobs = this.props.jobs.map((job) => {
