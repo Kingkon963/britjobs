@@ -8,3 +8,8 @@ export const toggleFavourite = (jobId) => {
         }
     }
 }
+
+// users
+export const fetchUser = () => (dispatch) => {
+    
+}

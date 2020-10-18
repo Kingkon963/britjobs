@@ -79,6 +79,17 @@ body a:hover {
   height: auto;
 }
 
+#navbar .nav-open-false {
+  display: none;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#navbar .nav-open-true {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 #navbar .navbar-nav {
   display: -webkit-box;
   display: -ms-flexbox;

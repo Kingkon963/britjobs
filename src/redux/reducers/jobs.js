@@ -1,5 +1,5 @@
-import {JOBS} from '../data/jobs';
-import * as ActionTypes from './ActionTypes';
+import {JOBS} from '../../data/jobs';
+import * as ActionTypes from '../ActionTypes';
 
 export const Jobs = (state = JOBS, action) => {
     switch(action.type){

@@ -3,6 +3,7 @@ import { firebaseAuth } from '../../firebase/config';
 import SignIn from '../SignInComponent';
 
 function SignInPage(props){
+    console.log(`${firebaseAuth.currentUser}`);
     return(
         <>
             <div className='container-fluid signInPage'>

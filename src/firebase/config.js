@@ -1,5 +1,6 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 var firebaseConfig = {
     apiKey: "AIzaSyBU6P_CPYIebZ1RtuAv27Zw8tX3zadbt5I",
@@ -16,8 +17,13 @@ var firebaseConfig = {
   
   // Services
   let firebaseAuth = firebase.auth();
+  let projectFirestore = firebase.firestore();
 
   //Auth Providers
   let googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-  export {firebaseAuth, googleAuthProvider};
+  export 
+  {
+    firebaseAuth, 
+    googleAuthProvider,
+    projectFirestore};

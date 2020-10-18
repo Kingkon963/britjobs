@@ -1,8 +1,71 @@
 import React, {Component} from 'react';
-import {Navbar ,Nav, Collapse, NavItem} from 'reactstrap';
+import {Navbar ,Nav, NavItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import ProfilePic from './UI/ProfilePicComponent';
 import { firebaseAuth } from '../firebase/config';
+
+function NavCollapse(props){
+    return(
+        <div className={`nav-open-${props.navOpen}`}>
+            <Nav navbar className='py-3 py-sm-0'>
+                <NavItem className='nav-item btn btn-sm' onClick={props.toggleNav}>
+                    <Link to='/jobs' className='nav-link'>
+                        <i className='fa fa-briefcase mr-1 d-sm-none'></i>
+                        <span>Jobs</span>
+                    </Link> 
+                </NavItem>
+                <NavItem className='nav-item btn btn-sm' onClick={props.toggleNav}>
+                    <Link to='/jobs'  className='nav-link'>
+                        <img src="assets/img/company.png" alt="jobs" className='d-sm-none'/>
+                        Companies
+                    </Link>
+                </NavItem>
+                <NavItem className='nav-item btn btn-sm' onClick={props.toggleNav}>
+                    <Link to='/jobs'  className='nav-link'>
+                        <img src="assets/img/resource.png" alt="jobs" className="my-0 d-sm-none" width="50%" />
+                        Resource
+                    </Link>
+                </NavItem>
+
+                <>
+                    <NavItem className='nav-item ml-auto px-0 d-none d-md-block' onClick={props.toggleNav}>
+                        <button className="nav-link btn nav-btn btn-sm btn-md-lg text-white mb-1 mb-sm-0">
+                            <strong>Post a Job</strong>
+                        </button>
+                    </NavItem>
+                    <NavItem className='nav-item px-0 d-none d-md-block' onClick={props.toggleNav}>
+                        <button className="nav-link btn btn-sm btn-md-lg nav-btn ">Register CV</button>
+                    </NavItem>
+                    
+                        {!props.isAuthenticated && 
+                            <NavItem className='nav-item px-0 d-none d-md-block'>
+                                <Link to='signin'>
+                                    <button className="nav-link btn text-white btn-sm ">
+                                        <i className="fa fa-lg fa-bell"></i> Sign in
+                                    </button>
+                                </Link>
+                            </NavItem>
+                        }
+                        {props.isAuthenticated && 
+                            <div className='d-none d-md-block'>
+                                <ProfilePic url={firebaseAuth.currentUser.photoURL}/>
+                            </div>
+                        }
+                        
+                    
+                </>
+                                
+            </Nav>
+            <div className="nav-btns-div mb-1 d-sm-none">
+                <button className="nav-item btn btn-sm btn-outline-dark btn-md-lg text-white mb-1 mb-sm-0">
+                    <strong>Post a Job</strong>
+                </button>
+                <button className="nav-item btn btn-sm btn-dark btn-md-lg nav-btn ">Register CV</button>
+                <button className="nav-item d-none d-sm-block btn text-white btn-sm "><i className="fa fa-lg fa-bell"></i> Sign in</button>
+            </div>
+        </div>
+    )
+}
 
 class NavBar extends Component {
 
@@ -11,7 +74,7 @@ class NavBar extends Component {
         this.navTogglerIconRef = React.createRef();
 
         this.state = {
-            navOpen: true
+            navOpen: false
         }
 
         this.toggleNav = this.toggleNav.bind(this);
@@ -47,65 +110,17 @@ class NavBar extends Component {
                         </Link>
                         <div className='d-sm-none d-inline'>
                             {!this.props.isAuthenticated && 
-                            <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border"><i className="fa fa-bell"></i> Sign in</button>}
+                            <Link to='signin'>
+                            <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border">
+                                <i className="fa fa-bell"></i> Sign in
+                            </button>
+                            </Link>
+                            }
+                            
                             {this.props.isAuthenticated && <ProfilePic url={firebaseAuth.currentUser.photoURL}/>}
                         </div>
-                        <Collapse navbar isOpen={!this.state.navOpen}>
-                            <Nav navbar className='py-3 py-sm-0'>
-                                <NavItem className='nav-item btn btn-sm'>
-                                    <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
-                                        <i className='fa fa-briefcase mr-1 d-sm-none'></i>
-                                        <span>Jobs</span>
-                                    </Link> 
-                                </NavItem>
-                                <NavItem className='nav-item btn btn-sm'>
-                                    <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
-                                        <img src="assets/img/company.png" alt="jobs" className='d-sm-none'/>
-                                        Companies
-                                    </Link>
-                                </NavItem>
-                                <NavItem className='nav-item btn btn-sm'>
-                                    <Link to='/jobs' onClick={this.state.navOpen?null:this.toggleNav} className='nav-link'>
-                                        <img src="assets/img/resource.png" alt="jobs" className="my-0 d-sm-none" width="50%" />
-                                        Resource
-                                    </Link>
-                                </NavItem>
-
-                                <>
-                                    <NavItem className='nav-item ml-auto px-0 d-none d-md-block'>
-                                        <button className="nav-link btn nav-btn btn-sm btn-md-lg text-white mb-1 mb-sm-0">
-                                            <strong>Post a Job</strong>
-                                        </button>
-                                    </NavItem>
-                                    <NavItem className='nav-item px-0 d-none d-md-block'>
-                                        <button className="nav-link btn btn-sm btn-md-lg nav-btn ">Register CV</button>
-                                    </NavItem>
-                                    
-                                        {!this.props.isAuthenticated && 
-                                            <NavItem className='nav-item px-0 d-none d-md-block'>
-                                                <Link to='signin'>
-                                                    <button className="nav-link btn text-white btn-sm ">
-                                                        <i className="fa fa-lg fa-bell"></i> Sign in
-                                                    </button>
-                                                </Link>
-                                            </NavItem>
-                                        }
-                                        {this.props.isAuthenticated && 
-                                            <ProfilePic url={firebaseAuth.currentUser.photoURL}/>
-                                        }
-                                        
-                                    
-                                </>
-                                
-                            </Nav>
-                            <div className="nav-btns-div mb-1 d-sm-none">
-                                <button className="nav-item btn btn-sm btn-outline-dark btn-md-lg text-white mb-1 mb-sm-0">
-                                    <strong>Post a Job</strong>
-                                </button>
-                                <button className="nav-item btn btn-sm btn-dark btn-md-lg nav-btn ">Register CV</button>
-                                <button className="nav-item d-none d-sm-block btn text-white btn-sm "><i className="fa fa-lg fa-bell"></i> Sign in</button>
-                            </div>
-                        </Collapse>
+                        <NavCollapse navOpen={this.state.navOpen} toggleNav={this.toggleNav}
+                        isAuthenticated={this.props.isAuthenticated}/>
                     </div>
                     
                 </Navbar>

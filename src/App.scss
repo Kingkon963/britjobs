@@ -108,6 +108,14 @@ body {
 			height: auto;
 		}
 	}
+	.nav-open-false{
+		display: none;
+		transition: all 1s;
+	}
+	.nav-open-true{
+		// nav open
+		transition: all 1s;
+	}
 	.navbar-nav{
 		display: flex;
 		flex-direction: row;
