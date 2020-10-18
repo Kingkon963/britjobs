@@ -108,13 +108,16 @@ body {
 			height: auto;
 		}
 	}
+	.nav-collapse{
+		width: 100%;
+		transition: all 1s;
+	}
 	.nav-open-false{
 		display: none;
-		transition: all 1s;
+		
 	}
 	.nav-open-true{
 		// nav open
-		transition: all 1s;
 	}
 	.navbar-nav{
 		display: flex;

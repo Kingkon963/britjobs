@@ -79,15 +79,14 @@ body a:hover {
   height: auto;
 }
 
-#navbar .nav-open-false {
-  display: none;
+#navbar .nav-collapse {
+  width: 100%;
   -webkit-transition: all 1s;
   transition: all 1s;
 }
 
-#navbar .nav-open-true {
-  -webkit-transition: all 1s;
-  transition: all 1s;
+#navbar .nav-open-false {
+  display: none;
 }
 
 #navbar .navbar-nav {

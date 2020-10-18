@@ -6,21 +6,21 @@ import { firebaseAuth } from '../firebase/config';
 
 function NavCollapse(props){
     return(
-        <div className={`nav-open-${props.navOpen}`}>
+        <div className={`nav-collapse nav-open-${props.navOpen}`}>
             <Nav navbar className='py-3 py-sm-0'>
-                <NavItem className='nav-item btn btn-sm' onClick={props.toggleNav}>
+                <NavItem className='nav-item btn btn-sm' onClick={(props.vw < 576)? props.toggleNav : null}>
                     <Link to='/jobs' className='nav-link'>
                         <i className='fa fa-briefcase mr-1 d-sm-none'></i>
                         <span>Jobs</span>
                     </Link> 
                 </NavItem>
-                <NavItem className='nav-item btn btn-sm' onClick={props.toggleNav}>
+                <NavItem className='nav-item btn btn-sm' onClick={(props.vw < 576)? props.toggleNav : null}>
                     <Link to='/jobs'  className='nav-link'>
                         <img src="assets/img/company.png" alt="jobs" className='d-sm-none'/>
                         Companies
                     </Link>
                 </NavItem>
-                <NavItem className='nav-item btn btn-sm' onClick={props.toggleNav}>
+                <NavItem className='nav-item btn btn-sm ' onClick={(props.vw < 576)? props.toggleNav : null}>
                     <Link to='/jobs'  className='nav-link'>
                         <img src="assets/img/resource.png" alt="jobs" className="my-0 d-sm-none" width="50%" />
                         Resource
@@ -28,12 +28,12 @@ function NavCollapse(props){
                 </NavItem>
 
                 <>
-                    <NavItem className='nav-item ml-auto px-0 d-none d-md-block' onClick={props.toggleNav}>
+                    <NavItem className='nav-item ml-auto px-0 d-none d-md-block' onClick={(props.vw < 576)? props.toggleNav : null}>
                         <button className="nav-link btn nav-btn btn-sm btn-md-lg text-white mb-1 mb-sm-0">
                             <strong>Post a Job</strong>
                         </button>
                     </NavItem>
-                    <NavItem className='nav-item px-0 d-none d-md-block' onClick={props.toggleNav}>
+                    <NavItem className='nav-item px-0 d-none d-md-block' onClick={(props.vw < 576)? props.toggleNav : null}>
                         <button className="nav-link btn btn-sm btn-md-lg nav-btn ">Register CV</button>
                     </NavItem>
                     
@@ -74,7 +74,8 @@ class NavBar extends Component {
         this.navTogglerIconRef = React.createRef();
 
         this.state = {
-            navOpen: false
+            navOpen: window.visualViewport.width>576 ? true: false,
+            vw: window.visualViewport.width
         }
 
         this.toggleNav = this.toggleNav.bind(this);
@@ -116,11 +117,11 @@ class NavBar extends Component {
                             </button>
                             </Link>
                             }
-                            
                             {this.props.isAuthenticated && <ProfilePic url={firebaseAuth.currentUser.photoURL}/>}
                         </div>
+
                         <NavCollapse navOpen={this.state.navOpen} toggleNav={this.toggleNav}
-                        isAuthenticated={this.props.isAuthenticated}/>
+                        isAuthenticated={this.props.isAuthenticated} vw={this.state.vw}/>
                     </div>
                     
                 </Navbar>
