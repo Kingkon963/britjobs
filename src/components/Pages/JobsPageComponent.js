@@ -18,10 +18,10 @@ function JobsPage(props){
                     <hr/>
                 </div>
                 <div className='row px-3'>
-                    <div className='col-3'>
+                    <div className='col-12 col-sm-3'>
                         <h6>Filter your Search</h6>
                     </div>
-                    <div className='col-8 offset-1'>
+                    <div className='col-12 col-sm-8 offset-sm-1'>
                         <JobsList jobs={props.jobs}/>
                     </div>
                 </div>
