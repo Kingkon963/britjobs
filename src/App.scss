@@ -139,7 +139,7 @@ body {
 			margin-right: 10px;
 			padding: 0px;
 			@include tablet(){
-				//min-width: 2em;
+				//min-width: 1em;
 				padding: 0px 1em;
 			}
             .nav-link{
@@ -149,13 +149,14 @@ body {
 				align-items: center;
 				@include tablet(){
 					flex-direction: row;
-					gap: .5em;
-					width: 100px;
+					//gap: .4em;
+					min-width: 8em;
 				}
 				img ,i {
 					width: 30%;
 					font-size: 150%;
 					height: auto;
+					margin-right: .3em;
 				}
             }
 		}
@@ -272,6 +273,7 @@ header {
 		grid-template-rows: auto;
 		column-gap: 3em;
 		row-gap: 1em;
+		overflow-x: scroll;
 		.sector-btn {
 			background-color: $color-secondary;
 			padding: 20px 60px;

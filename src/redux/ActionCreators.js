@@ -10,6 +10,15 @@ export const toggleFavourite = (jobId) => {
 }
 
 // users
-export const fetchUser = () => (dispatch) => {
-    
+export const addUser = (user) => {
+    return {
+        type: ActionTypes.ADD_USER,
+        payload: user
+    }
+}
+
+export const clearCurrentUser = () => {
+    return {
+        type: ActionTypes.CLEAR_CURRENT_USER
+    }
 }

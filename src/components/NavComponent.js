@@ -4,7 +4,13 @@ import {Link} from 'react-router-dom';
 import ProfilePic from './UI/ProfilePicComponent';
 import { firebaseAuth } from '../firebase/config';
 
+const signOut = (ccu) => {
+    firebaseAuth.signOut();
+    ccu();
+}
+
 function NavCollapse(props){
+
     return(
         <div className={`nav-collapse nav-open-${props.navOpen}`}>
             <Nav navbar className='py-3 py-sm-0'>
@@ -37,25 +43,34 @@ function NavCollapse(props){
                         <button className="nav-link btn btn-sm btn-md-lg nav-btn ">Register CV</button>
                     </NavItem>
                     
-                        {!props.isAuthenticated && 
+                        {!props.user.currentUser && 
                             <NavItem className='nav-item px-0 d-none d-md-block'>
-                                <Link to='signin'>
+                                <Link to='/signin'>
                                     <button className="nav-link btn text-white btn-sm ">
                                         <i className="fa fa-lg fa-bell"></i> Sign in
                                     </button>
                                 </Link>
                             </NavItem>
                         }
-                        {props.isAuthenticated && 
-                            <div className='d-none d-md-block'>
-                                <ProfilePic url={firebaseAuth.currentUser.photoURL}/>
-                            </div>
+                        {props.user.currentUser && 
+                        <>
+                            <NavItem className='nav-item px-0 d-none d-md-block'
+                            onClick={() => {signOut(props.clearCurrentUser)}}>
+                                <Link to='/home'>
+                                    <button className="nav-link btn text-white btn-sm">
+                                        <i className="fa fa-lg fa-bell"></i> Sign Out
+                                    </button>
+                                </Link>
+                            </NavItem>
+                            <ProfilePic url={props.user.currentUser.photoURL}/>
+                        </>
                         }
                         
                     
                 </>
                                 
             </Nav>
+            {/* For Small Screens */}
             <div className="nav-btns-div mb-1 d-sm-none">
                 <button className="nav-item btn btn-sm btn-outline-dark btn-md-lg text-white mb-1 mb-sm-0">
                     <strong>Post a Job</strong>
@@ -110,18 +125,22 @@ class NavBar extends Component {
                             <img src="assets/img/logo.png" alt="brand-logo"/>
                         </Link>
                         <div className='d-sm-none d-inline'>
-                            {!this.props.isAuthenticated && 
+                            {true && 
                             <Link to='signin'>
                             <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border">
                                 <i className="fa fa-bell"></i> Sign in
                             </button>
                             </Link>
                             }
-                            {this.props.isAuthenticated && <ProfilePic url={firebaseAuth.currentUser.photoURL}/>}
+                            {firebaseAuth.currentUser && <ProfilePic url={firebaseAuth.currentUser.photoURL}/>}
                         </div>
 
-                        <NavCollapse navOpen={this.state.navOpen} toggleNav={this.toggleNav}
-                        isAuthenticated={this.props.isAuthenticated} vw={this.state.vw}/>
+                        <NavCollapse 
+                        navOpen={this.state.navOpen} 
+                        toggleNav={this.toggleNav}
+                        vw={this.state.vw} 
+                        user={this.props.user}
+                        clearCurrentUser={this.props.clearCurrentUser}/>
                     </div>
                     
                 </Navbar>

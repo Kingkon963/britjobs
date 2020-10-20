@@ -10,8 +10,8 @@ export const ConfigureStore = () => {
         combineReducers({
             jobs: Jobs,
             users: Users
-        },
-        applyMiddleware(thunk, logger))
+        }),
+        applyMiddleware(thunk, logger)
     );
     return store;
 }

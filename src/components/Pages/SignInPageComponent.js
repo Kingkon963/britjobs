@@ -1,16 +1,16 @@
 import React from 'react';
-import { firebaseAuth } from '../../firebase/config';
 import SignIn from '../SignInComponent';
 
 function SignInPage(props){
-    console.log(`${firebaseAuth.currentUser}`);
+
     return(
         <>
             <div className='container-fluid signInPage'>
                 <div className='pt-5'>
-                    <SignIn setIsAuthenticated={props.setIsAuthenticated}/>
-                    {firebaseAuth.currentUser &&
-                        <h1 className='text-center'>Hi, {firebaseAuth.currentUser.displayName}</h1>
+                    {!props.user.currentUser && <SignIn addUser={props.addUser} currentUser={props.user.currentUser}/>}
+                    
+                    {props.user.currentUser &&
+                        <h1 className='text-center'>Hi, {props.user.currentUser.displayName}</h1>
                     }
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function ProfilePic({url}){
     return(
-        <img className='img-fluid profile-pic' src={url}  alt="profile_pic"/>
+        <img className='img-fluid rounded-circle profile-pic' src={url}  alt="profile_pic"/>
     );
 }
 

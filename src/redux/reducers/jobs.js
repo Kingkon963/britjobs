@@ -3,6 +3,7 @@ import * as ActionTypes from '../ActionTypes';
 
 export const Jobs = (state = JOBS, action) => {
     switch(action.type){
+
         case ActionTypes.TOGGLE_FAVOURITE:
             let jobId = action.payload.jobId;
             let newState = [...state];

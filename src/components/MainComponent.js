@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import NavBar from './NavComponent';
 import Footer from './UI/FooterComponent';
@@ -9,18 +9,23 @@ import SignInPage from './Pages/SignInPageComponent';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {toggleFavourite} from '../redux/ActionCreators';
-import { firebaseAuth } from '../firebase/config';
+import {
+    toggleFavourite,
+    addUser,
+    clearCurrentUser} 
+    from '../redux/ActionCreators';
 
 const mapStateToProps = (state) => {
     return {
         jobs: state.jobs,
-        users: state.users
+        user: state.users
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    toggleFavourite: (jobId) => dispatch(toggleFavourite(jobId)) 
+    toggleFavourite: (jobId) => dispatch(toggleFavourite(jobId)),
+    addUser: (user) => dispatch(addUser(user)),
+    clearCurrentUser: () => dispatch(clearCurrentUser())
 });
 
 function NotFound404(){
@@ -35,18 +40,10 @@ function NotFound404(){
 
 
 function Main(props){
-    /*constructor(props){
-        super(props);
-        this.state = {
-            isAuthenticated: firebaseAuth.currentUser !== null
-        }
-    }*/
-    let [isAuthenticated, setIsAuthenticated] = useState(firebaseAuth.currentUser !== null);
 
-    
         return (
             <div className='main'>
-                <NavBar isAuthenticated={isAuthenticated}/>
+                <NavBar user={props.user} clearCurrentUser={props.clearCurrentUser}/>
 
                 <Switch>
                     <Route path='/home' >
@@ -56,7 +53,9 @@ function Main(props){
                         <JobsPage jobs={props.jobs} />
                     </Route>
                     <Route path='/signin'>
-                        <SignInPage setIsAuthenticated={setIsAuthenticated}/>
+                        <SignInPage 
+                        addUser={props.addUser}
+                        user={props.user}/>
                     </Route>
                     <Route path='/404' component={NotFound404}/>
                     <Redirect to='/home' />

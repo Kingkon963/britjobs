@@ -4,26 +4,25 @@ import { firebaseAuth, googleAuthProvider } from '../firebase/config';
 
 
 function SignIn(props){
-    console.log(firebaseAuth.currentUser);
+    //console.log(firebaseAuth.currentUser);
 
     async function login() {
-        let res = await firebaseAuth.signInWithPopup(googleAuthProvider)
+        // Signin processing
+        await firebaseAuth.signInWithPopup(googleAuthProvider)
         .then((result) => {
-            let token = result.credential.accessToken;
+            //Signin Success
+            console.log(result);
+            //let token = result.credential.accessToken;
             let user = result.user;
-            console.log(token);
-            console.log(user);
-            props.setIsAuthenticated({
-                isAuthenticated: true
-            })
-            return result;
+            
+            //adding User to Redux Store
+            props.addUser(user);
+            
         })
         .catch(err => {
             console.log(`${err.code}: ${err.message}`);
         });
-        
-        console.log(firebaseAuth.currentUser);
-        console.log("Result: "+ res);
+
     }
 
 
