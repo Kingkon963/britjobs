@@ -59,12 +59,15 @@ p,dl,h1,h2,h3,h4,h5,h6,img{
 	height: 45vh;
 }
 
-body {
+body .main{
 	box-sizing: border-box;
-	margin-top: 4em;
+	//margin-top: 4em;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 	-webkit-overflow-scrolling: touch;
 	@include tablet(){
-		margin-top: 4.9em;
+		//margin-top: 4.9em;
 	}
 
 	a{

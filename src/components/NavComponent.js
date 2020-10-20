@@ -10,9 +10,9 @@ const signOut = (ccu) => {
 }
 
 function NavCollapse(props){
-
+    
     return(
-        <div className={`nav-collapse nav-open-${props.navOpen}`}>
+        <div className={`nav-collapse nav-open-${props.navOpen}`} >
             <Nav navbar className='py-3 py-sm-0'>
                 <NavItem className='nav-item btn btn-sm' onClick={(props.vw < 576)? props.toggleNav : null}>
                     <Link to='/jobs' className='nav-link'>
@@ -62,7 +62,9 @@ function NavCollapse(props){
                                     </button>
                                 </Link>
                             </NavItem>
-                            <ProfilePic url={props.user.currentUser.photoURL}/>
+                            <div className='d-none d-md-block'>
+                                <ProfilePic url={props.user.currentUser.photoURL}/>
+                            </div>
                         </>
                         }
                         
@@ -87,6 +89,7 @@ class NavBar extends Component {
     constructor(props){
         super(props);
         this.navTogglerIconRef = React.createRef();
+        this.navRef = React.createRef();
 
         this.state = {
             navOpen: window.visualViewport.width>576 ? true: false,
@@ -95,7 +98,12 @@ class NavBar extends Component {
 
         this.toggleNav = this.toggleNav.bind(this);
     }
-    //const [navOpen, setNavOpen] = useState(false);
+    
+    componentDidMount(){
+        const rect = this.navRef.current.getBoundingClientRect();
+        this.props.setNavHeight(rect.bottom - rect.top);
+    }
+
     toggleNav(){
         //toggling Icon
         if(this.navTogglerIconRef.current.classList.contains('fa-bars')){
@@ -115,7 +123,7 @@ class NavBar extends Component {
 
     render(){
         return (
-            <div id="navbar" className='fixed-top'>
+            <div id="navbar" className='fixed-top' ref={this.navRef}>
                 <Navbar dark expand='md'  className='navbar-dark'>
                     <div className='container-fluid'>
                     <button className="navbar-toggler" onClick={() => this.toggleNav()}>
@@ -125,14 +133,15 @@ class NavBar extends Component {
                             <img src="assets/img/logo.png" alt="brand-logo"/>
                         </Link>
                         <div className='d-sm-none d-inline'>
-                            {true && 
+                            {!this.props.user.currentUser && 
                             <Link to='signin'>
                             <button className="d-sm-none d-inline btn text-white btn-sm  py-0 border">
                                 <i className="fa fa-bell"></i> Sign in
                             </button>
                             </Link>
                             }
-                            {firebaseAuth.currentUser && <ProfilePic url={firebaseAuth.currentUser.photoURL}/>}
+                            {this.props.user.currentUser && 
+                            <ProfilePic url={firebaseAuth.currentUser.photoURL}/>}
                         </div>
 
                         <NavCollapse 

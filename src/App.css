@@ -23,26 +23,27 @@ p, dl, h1, h2, h3, h4, h5, h6, img {
   height: 45vh;
 }
 
-body {
+body .main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-top: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
   -webkit-overflow-scrolling: touch;
 }
 
-@media only screen and (min-width: 576px) {
-  body {
-    margin-top: 4.9em;
-  }
-}
-
-body a {
+body .main a {
   text-decoration: none;
   font-weight: lighter;
   color: #ddd9d7;
 }
 
-body a:hover {
+body .main a:hover {
   color: floralwhite;
   text-decoration: none;
 }

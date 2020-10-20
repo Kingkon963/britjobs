@@ -2,8 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function Footer() {
+
+	
     return (
-        <footer>
+        <footer >
 		<div className="container-fluid">
 			<div id="footer_grid">
 				<div className="colf-1">

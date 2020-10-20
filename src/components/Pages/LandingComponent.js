@@ -97,7 +97,10 @@ class LandingPage extends Component{
 						</div>
 					</div>
 					
-					<div className="row min-row-height my-5 bg-info" id="stay_ahead_row">
+					
+				</div>
+				<div className='container-fluid'>
+				<div className="row min-row-height my-5 bg-info" id="stay_ahead_row">
 							<div className="col-12 d-flex flex-column justify-content-between align-items-center h-100 py-3">
 								<div>
 									<h3 >Stay ahead</h3>
